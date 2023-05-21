@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+cat parsed.txt \
+    | tr '[:upper:]' '[:lower:]' \
+    | sed 's/cero/0/g' \
+    | sed 's/uno/1/g' \
+    | sed 's/dos/2/g' \
+    | sed 's/tres/3/g' \
+    | sed 's/cuatro/4/g' \
+    | sed 's/cinco/5/g' \
+    | sed 's/seis/6/g' \
+    | sed 's/siete/7/g' \
+    | sed 's/ocho/8/g' \
+    | sed 's/nueve/9/g' \
+    | tr '\n' ' ' \
+    > converted_to_numbers.txt

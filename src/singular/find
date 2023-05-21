@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+cat singular.txt | sort | uniq -u > singular-unique.txt
+
+# There is a unique length
+
+function find_length() {
+   while IFS= read -r line; do
+     echo ${#line} $line
+   done < singular-unique.txt
+}
+
+find_length
+
+# There does not seem to be a unique word
+#cat singular-unique.txt | sed s/he2023\{// | sed s/\}// | sed s/\_/\ /g | tr " " "\n" | sort | uniq -u
+

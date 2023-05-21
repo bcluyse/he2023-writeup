@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+    <script src="background.png.js"></script>
+</head>
+<body style="background-color: white">
+    <div>
+    </div>
+    <script type="module">
+            function getRandomColor(x, z) {
+				let pos = (x + z * 21) * 6;
+				let val = hex.substring(pos, pos + 6);
+				console.log("x:" + x + ", z: " + z + ", val: " + val )
+				
+				return val;	
+			}
+
+            function convertColor(egg) {
+                // return egg.color;                
+                return `#${egg.color}`;
+
+                // const red = parseInt(egg.color.substring(0,2), 16);
+                // const blue = parseInt(egg.color.substring(2,4), 16);
+                // const green = parseInt(egg.color.substring(4,6), 16);
+
+                // console.log({ red, blue, green})
+                // if (red < 128 || blue < 128 || green < 128) {
+                //     return 'black'
+                // }
+                // return 'white'
+            }
+
+            function init() {
+                const eggs = [];
+                for ( let x = 0; x < 21; x ++ ) {
+                        for ( let z = 0; z < 21; z ++ ) {
+                        const egg = {};
+                        egg.x = x * 25;
+                        egg.z = z * 25 + 100;
+                        egg.color = getRandomColor(x, z);
+
+                        eggs.push( egg );
+                    }
+                }
+
+                eggs.forEach((egg) => {
+                    const element = document.createElement('div');
+                    element.style.cssText = `position: absolute; top: ${egg.z}px; left: ${egg.x}px; background-color: ${convertColor(egg)}; width: 25px; height: 25px`;
+                    element.onclick = () => {
+                        element.style.cssText = `position: absolute; top: ${egg.z}px; left: ${egg.x}px; background-color: black; width: 25px; height: 25px`;
+                    }
+                    document.body.appendChild(element);
+                });
+            }
+
+            init()
+
+    </script>
+</body>

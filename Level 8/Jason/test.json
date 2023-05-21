@@ -1,0 +1,10 @@
+{
+  "name" : "Jason",
+  "surname" : "Hamstat",
+  "hidden": {
+    "flag": "heXXXX"
+  },
+  "street": "100 Kent",
+  "city": "Sidney",
+  "country": "Australia"
+}

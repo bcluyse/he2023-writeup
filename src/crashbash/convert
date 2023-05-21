@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "Adding $1 to the clipboard"
+
+sed -E 's/( |^)/\\/g' <<< "$1" | sed -E "s/^/$\'/g" | sed -E "s/$/'/g" | xclip -sel clip
